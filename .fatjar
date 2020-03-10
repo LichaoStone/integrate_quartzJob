@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Wed Jun 06 14:49:51 CST 2018
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=integrateJob.jar
+manifest.mergeall=true
+manifest.mainclass=com.allook.enter.QuartzJobEnter
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=
+includes=

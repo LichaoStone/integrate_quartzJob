@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- 定时器配置 -->
+	<!-- 定义任务类 -->
+	<bean name="quartzJob" class="com.allook.enter.QuartzJobEnter">
+	</bean>
+
+
+	<!-- 定义任务详情 -->
+	<!-- 
+	<bean id="jobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="quartzJob" />
+		</property>
+		<property name="targetMethod">
+			<value>dataCleanTask</value>
+		</property>
+	</bean>
+	 -->
+	<!-- 配置触发器 -->
+	<!-- 
+	<bean id="jobTrigger"
+		class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail">
+			<ref bean="jobDetail" />
+		</property>
+		<property name="cronExpression">
+		<value>0 0 1 * * ?</value>
+		</property>
+	</bean>
+	 -->
+	
+	<!-- 定义任务详情 -->
+	<bean id="jobRefreshDetail1"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="quartzJob" />
+		</property>
+		<property name="targetMethod">
+			<value>qwrdRefreshTask</value>
+		</property>
+	</bean>
+	<!-- 配置触发器 -->
+	<bean id="jobRefreshTrigger1"
+		class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!--
+			这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下
+		-->
+		<property name="jobDetail">
+			<ref bean="jobRefreshDetail1" />
+		</property>
+		<!-- 每10分钟执行一次 -->
+		<property name="cronExpression">
+		<value>0 0/10 * * * ?</value>
+		</property>
+	</bean>
+
+	<!-- 定义任务详情 -->
+	<bean id="jobRefreshDetail2"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="quartzJob" />
+		</property>
+		<property name="targetMethod">
+			<value>bdxwRefreshTask</value>
+		</property>
+	</bean>
+	<!-- 配置触发器 -->
+	<bean id="jobRefreshTrigger2"
+		class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!--
+			这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下
+		-->
+		<property name="jobDetail">
+			<ref bean="jobRefreshDetail2" />
+		</property>
+		<!-- 每10分钟执行一次 -->
+		<property name="cronExpression">
+		<value>0 0/10 * * * ?</value>
+		</property>
+	</bean>
+	
+	<!-- 定义任务详情 -->
+	<bean id="jobRefreshDetail3"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="quartzJob" />
+		</property>
+		<property name="targetMethod">
+			<value>wlrsRefreshTask</value>
+		</property>
+	</bean>
+	<!-- 配置触发器 -->
+	<bean id="jobRefreshTrigger3"
+		class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!--
+			这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下
+		-->
+		<property name="jobDetail">
+			<ref bean="jobRefreshDetail3" />
+		</property>
+		<!-- 每小时执行一次 -->
+		<property name="cronExpression">
+		<value>0 0 0/1 * * ?</value>
+		</property>
+	</bean>
+	
+	<!-- 定义任务详情 -->
+	<bean id="jobRefreshDetail4"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="quartzJob" />
+		</property>
+		<property name="targetMethod">
+			<value>dfylRefreshTask</value>
+		</property>
+	</bean>
+	<!-- 配置触发器 -->
+	<bean id="jobRefreshTrigger4"
+		class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!--
+			这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下
+		-->
+		<property name="jobDetail">
+			<ref bean="jobRefreshDetail4" />
+		</property>
+		<!-- 每小时执行一次 -->
+		<property name="cronExpression">
+		<value>0 0 0/1 * * ?</value>
+		</property>
+	</bean>
+	
+	<!-- 定义任务详情 -->
+	<bean id="jobRefreshDetail5"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="quartzJob" />
+		</property>
+		<property name="targetMethod">
+			<value>scltjRefreshTask</value>
+		</property>
+	</bean>
+	<!-- 配置触发器 -->
+	<bean id="jobRefreshTrigger5"
+		class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!--
+			这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下
+		-->
+		<property name="jobDetail">
+			<ref bean="jobRefreshDetail5" />
+		</property>
+		<!-- 每天4点执行一次 -->
+		<property name="cronExpression">
+		<value>0 0 4 * * ?</value>
+		</property>
+	</bean>
+	
+	<!-- 定义任务详情 -->
+	<bean id="jobRefreshDetail6"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="quartzJob" />
+		</property>
+		<property name="targetMethod">
+			<value>yxltjRefreshTask</value>
+		</property>
+	</bean>
+	<!-- 配置触发器 -->
+	<bean id="jobRefreshTrigger6"
+		class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!--
+			这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下
+		-->
+		<property name="jobDetail">
+			<ref bean="jobRefreshDetail6" />
+		</property>
+		<!-- 每天4点执行一次 -->
+		<property name="cronExpression">
+		<value>0 0 4 * * ?</value>
+		</property>
+	</bean>
+	
+	<!-- 定义任务详情 -->
+	<bean id="jobRefreshDetail7"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="quartzJob" />
+		</property>
+		<property name="targetMethod">
+			<value>zxrbRefreshTask</value>
+		</property>
+	</bean>
+	<!-- 配置触发器 -->
+	<bean id="jobRefreshTrigger7"
+		class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!--
+			这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下
+		-->
+		<property name="jobDetail">
+			<ref bean="jobRefreshDetail7" />
+		</property>
+		<!-- 每天4点执行一次 -->
+		<property name="cronExpression">
+		<value>0 0 4 * * ?</value>
+		</property>
+	</bean>
+	
+	<!-- 定义任务详情 -->
+	<bean id="jobRefreshDetail8"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="quartzJob" />
+		</property>
+		<property name="targetMethod">
+			<value>sprbRefreshTask</value>
+		</property>
+	</bean>
+	<!-- 配置触发器 -->
+	<bean id="jobRefreshTrigger8"
+		class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<!--
+			这里不可以直接在属性jobDetail中引用taskJob，因为他要求的是一个jobDetail类型的对象，所以我们得通过MethodInvokingJobDetailFactoryBean来转一下
+		-->
+		<property name="jobDetail">
+			<ref bean="jobRefreshDetail8" />
+		</property>
+		<!-- 每天4点执行一次 -->
+		<property name="cronExpression">
+		<value>0 0 4 * * ?</value>
+		</property>
+	</bean>
+
+	<!-- 添加触发器 -->
+	<bean
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<!-- 
+				<ref local="jobTrigger" />
+				 -->
+				<ref local="jobRefreshTrigger1" />
+				<ref local="jobRefreshTrigger2" />
+				<ref local="jobRefreshTrigger3" />
+				<ref local="jobRefreshTrigger4" />
+				<ref local="jobRefreshTrigger5" />
+				<ref local="jobRefreshTrigger6" />
+				<ref local="jobRefreshTrigger7" />
+				<ref local="jobRefreshTrigger8" />
+			</list>
+		</property>
+	</bean>
+
+</beans>
